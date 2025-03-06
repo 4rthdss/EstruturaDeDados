@@ -5,6 +5,18 @@ public class UniBHList<T> {
     private Node<T> lastNode;
     private int totalElements;
 
+    public int find(T value) throws Exception {
+        Node<T> current = firstNode;
+        for (int i = 0; i <= totalElements; i++) {
+            if (current.getValue() == value) {
+                return i;
+            } else {
+                current = current.getNext();
+            }
+        }
+        throw new Exception("Item não encontrado");
+    }
+
     public void insertAtBeginning(T value) {
         Node<T> newNode = new Node<>(value);
         if (firstNode == null) {

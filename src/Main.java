@@ -1,3 +1,6 @@
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -19,6 +22,12 @@ public class Main {
         myList.removeAtEnding();
         System.out.println(myList);
 
+        try {
+            int i = myList.find(3);
+            System.out.println("--------" + i);
+        } catch (Exception ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
         System.out.println();
     }
 }

@@ -43,6 +43,10 @@ public class UniBHList<T> {
         totalElements--;
     }
 
+    public boolean isEmpty() {
+        return totalElements == 0;
+    }
+
     public void insertAtBeginning(T value) {
         Node<T> newNode = new Node<>(value);
         if (firstNode == null) {

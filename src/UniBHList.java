@@ -17,6 +17,28 @@ public class UniBHList<T> {
         throw new Exception("Item não encontrado");
     }
 
+    public Node<T> find(int index) throws Exception {
+        Node<T> current = firstNode;
+        for (int i = 0; i <= totalElements; i++) {
+            if (index == i) {
+                return current;
+            } else {
+                current = current.getNext();
+            }
+        }
+        throw new Exception("Item não encontrado");
+    }
+
+    public void add(int index, T value) throws Exception {
+        if (index < 0 || index > totalElements) {
+            throw new Exception("Esse indice não existe");
+        }
+        Node<T> node = new Node<T>(value);
+        node.setNext(this.find(index + 1));
+        find(index).setNext(node);
+        totalElements++;
+    }
+
     public void removeAt(int index) throws Exception {
         if (index < 0 || index >= totalElements) {
             throw new Exception("Índice inválido");

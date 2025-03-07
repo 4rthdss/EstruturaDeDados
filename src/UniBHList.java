@@ -17,6 +17,32 @@ public class UniBHList<T> {
         throw new Exception("Item não encontrado");
     }
 
+    public void removeAt(int index) throws Exception {
+        if (index < 0 || index >= totalElements) {
+            throw new Exception("Índice inválido");
+        }
+
+        if (index == 0) {
+            removeAtBeginning();
+            return;
+        }
+
+        Node<T> current = firstNode;
+        Node<T> previous = null;
+
+        for (int i = 0; i < index; i++) {
+            previous = current;
+            current = current.getNext();
+        }
+
+        previous.setNext(current.getNext());
+
+        if (current.getNext() == null) {
+            lastNode = previous;
+        }
+        totalElements--;
+    }
+
     public void insertAtBeginning(T value) {
         Node<T> newNode = new Node<>(value);
         if (firstNode == null) {

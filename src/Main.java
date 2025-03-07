@@ -25,6 +25,9 @@ public class Main {
         try {
             int i = myList.find(3);
             System.out.println("--------" + i);
+
+            myList.removeAt(6);
+            System.out.println("-------------------" + myList);
         } catch (Exception ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }

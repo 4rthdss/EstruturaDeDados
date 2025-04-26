@@ -1,7 +1,5 @@
-// You can extend comparable interface,
-// this enables you to check if two elements are or not equals.
-
 public class Node<T> {
+
     private T value;
     private Node next;
 
@@ -20,6 +18,10 @@ public class Node<T> {
 
     public T getValue() {
         return value;
+    }
+
+    public void setValue(T value) {
+        this.value = value;
     }
 
     @Override
